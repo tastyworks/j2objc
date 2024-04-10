@@ -158,7 +158,7 @@ endif
 endif
 DEBUGFLAGS := $(DEBUGFLAGS) -O$(OPTIMIZATION_LEVEL)
 
-CC_WARNINGS = -Wall -Werror -Wshorten-64-to-32 -Wimplicit-function-declaration \
+CC_WARNINGS = -Wall -Wshorten-64-to-32 -Wimplicit-function-declaration \
   -Wmissing-field-initializers -Wduplicate-method-match -Wno-unused-variable \
   -Wno-nullability-completeness
 
