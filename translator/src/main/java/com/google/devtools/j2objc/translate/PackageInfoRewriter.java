@@ -68,8 +68,8 @@ public class PackageInfoRewriter {
 
     Annotation swiftAnnotation = TreeUtil.getAnnotation(SwiftName.class, pkg.getAnnotations());
     if (swiftAnnotation != null) {
-      Object swiftName =
-          ElementUtil.getAnnotationValue(swiftAnnotation.getAnnotationMirror(), "value");
+      String swiftName =
+          ElementUtil.getAnnotationValue(swiftAnnotation.getAnnotationMirror(), "value").toString();
       if (swiftName != null) {
         ErrorUtil.warning("@SwiftName(" + swiftName + "): Package provided a Swift name value.");
       }

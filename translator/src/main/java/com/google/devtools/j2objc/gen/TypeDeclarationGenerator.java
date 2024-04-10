@@ -195,7 +195,7 @@ public class TypeDeclarationGenerator extends TypeGenerator {
       }
       unindent();
       print("}");
-      String swiftName = nameTable.getSwiftClassNameFromAnnotation(typeElement, true);
+      String swiftName = nameTable.getSwiftClassNameFromAnnotation(typeElement);
       if (swiftName != null) {
         printf(" NS_SWIFT_NAME(%s)", swiftName);
       }
@@ -287,11 +287,11 @@ public class TypeDeclarationGenerator extends TypeGenerator {
   }
 
   private void printSwiftName() {
-    String swiftName = nameTable.getSwiftClassNameFromAnnotation(typeElement, true);
+    String swiftName = nameTable.getSwiftClassNameFromAnnotation(typeElement);
 
     if (swiftName != null) {
       if ((typeNode instanceof EnumDeclaration)) {
-        swiftName = swiftName + "Class";
+        swiftName = swiftName + "." + swiftName + "Class";
       }
       printf(" NS_SWIFT_NAME(%s)\n", swiftName);
     }
@@ -752,7 +752,7 @@ public class TypeDeclarationGenerator extends TypeGenerator {
       print(" OBJC_METHOD_FAMILY_NONE");
     }
 
-    String swiftName = nameTable.getSwiftMethodNameFromAnnotation(m);
+    String swiftName = nameTable.getSwiftMethodNameFromAnnotation(methodElement);
     if (swiftName != null) {
       print(" NS_SWIFT_NAME(" + swiftName + ")");
     }
@@ -799,7 +799,7 @@ public class TypeDeclarationGenerator extends TypeGenerator {
 
   @Override
   protected void printFunctionDeclaration(FunctionDeclaration function) {
-    print("\nFOUNDATION_EXPORT " + getFunctionSignature(function, true, false));
+    print("\nFOUNDATION_EXPORT " + getFunctionSignature(function, true));
     if (function.returnsRetained()) {
       print(" NS_RETURNS_RETAINED");
     }
