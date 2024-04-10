@@ -53,20 +53,21 @@ install-extras: $(EXTRA_DIST_FILES:%=$(DIST_DIR)/%)
 
 frameworks: dist
 	@cd jre_emul && $(MAKE) framework
-	@cd junit && $(MAKE) framework
 	@cd jsr305 && $(MAKE) framework
 	@cd inject/javax_inject && $(MAKE) framework
-	@cd guava && $(MAKE) framework
-	@cd testing/mockito && $(MAKE) framework
-	@cd testing/truth && $(MAKE) framework
-	@cd xalan && $(MAKE) framework
+#   Not used in apps right now
+# 	@cd junit && $(MAKE) framework
+# 	@cd guava && $(MAKE) framework
+# 	@cd testing/mockito && $(MAKE) framework
+# 	@cd testing/truth && $(MAKE) framework
+# 	@cd xalan && $(MAKE) framework
 
 all_frameworks: frameworks protobuf_dist
 	@cd protobuf/runtime && $(MAKE) framework
 
-dist: print_environment translator_dist jre_emul_dist junit_dist jsr305_dist \
-  javax_inject_dist guava_dist mockito_dist truth_dist cycle_finder_dist \
-  xalan_dist install-man-pages install-extras
+dist: print_environment translator_dist jre_emul_dist jsr305_dist javax_inject_dist cycle_finder_dist install-man-pages install-extras \
+  # Not used in apps right now
+  # guava_dist mockito_dist truth_dist junit_dist xalan_dist \
 
 protobuf_dist: protobuf_compiler_dist protobuf_runtime_dist
 
