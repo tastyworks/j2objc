@@ -170,7 +170,7 @@
     <dependency>
       <groupId>org.codehaus.mojo</groupId>
       <artifactId>animal-sniffer-annotations</artifactId>
-      <version>1.14</version>
+      <version>1.28</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
