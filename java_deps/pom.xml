@@ -165,7 +165,7 @@
     <dependency>
       <groupId>io.github.eisop</groupId>
       <artifactId>checker-qual</artifactId>
-      <version>3.27.0-eisop1</version>
+      <version>3.49.5-eisop1</version>
     </dependency>
     <dependency>
       <groupId>org.codehaus.mojo</groupId>
